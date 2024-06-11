@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similar Articles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Makes text more readable */
+            background-color: #f0f0f0; /* Light grey background */
+            color: #333; /* Dark grey color for text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center-aligns the content */
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none; /* Removes bullet points from the list */
+            padding: 0;
+            max-width: 100%; /* Allows the list to fill the width of the body */
+            margin: 20px auto;
+        }
+        li {
+            background-color: #ffffff; /* White background for list items */
+            margin-top: 20px; /* Increased margin between articles */
+            padding: 20px; /* Increased padding for articles */
+            border-radius: 8px; /* Rounds the corners of list items */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds subtle shadow to list items */
+            width: 90%; /* Adjusts the width of list items */
+            margin-left: auto; /* Centers the list item */
+            margin-right: auto; /* Centers the list item */
+        }
+        li:hover {
+            background-color: #f0f0f0; /* Light grey background on hover */
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-btn {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            padding: 12px 24px; /* Larger padding */
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            margin-top: 20px; /* Increased margin */
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Similar Articles</h1>
+    <ul>
+        {% for article in articles %}
+            <li>
+                <strong>Key:</strong> {{ article.key }}<br>
+                <strong>Heading:</strong> {{ article.Heading }}<br>
+                <strong>Date:</strong> {{ article.Date }}<br>
+                <strong>Link to Article:</strong> <button onclick="window.location.href='{{ article.Article }}'">Here</button>
+            </li>
+        {% endfor %}
+    </ul>
+    <a class="back-btn" href="{% url 'home' %}">Back to Home Page</a>
+</body>
+</html>
